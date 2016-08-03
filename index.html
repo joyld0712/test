@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
+    <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/ekko-lightbox.min.css">
+<!--    <link rel="stylesheet" type="text/css" href="css/ekko-lightbox-dark.css"> -->
+    <link rel="stylesheet" type="text/css" href="./static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+    <title>七夕节快乐</title>
+</head>
+
+<body>
+	<app></app>
+   <!--  <bodys></bodys>
+    <footers></footers> -->
+    <script src="./static/js/jquery.min.js"></script>
+		<script src="./static/js/bootstrap.min.js"></script>
+        <script src="./static/js/ekko-lightbox.min.js"></script>
+        <script src="./static/js/jquery.singlePageNav.min.js"></script>
+        <script>
+
+            // Prevent console.log from generating errors in IE for the purposes of the demo
+            if ( ! window.console ) console = { log: function(){} };
+
+            // The actual plugin
+            $('.single-page-nav').singlePageNav({
+                offset: $('.single-page-nav').outerHeight(),
+                filter: ':not(.external)',
+                updateHash: true,
+                beforeStart: function() {
+                    console.log('begin scrolling');
+                },
+                onComplete: function() {
+                    console.log('done scrolling');
+                }
+            });
+			
+			$(document).ready(function ($) {
+
+				// delegate calls to data-toggle="lightbox"
+				$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+					event.preventDefault();
+					return $(this).ekkoLightbox({
+						always_show_close: true
+					});
+				});
+
+			});
+			
+        </script>
+
+    <script src="dist/build.js"></script>
+  </body>
+</html>
